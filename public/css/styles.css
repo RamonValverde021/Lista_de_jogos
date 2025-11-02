@@ -18,8 +18,8 @@
 }
 
 body#index {
- background-color: #ddd;
- font-family: Tahoma;
+    background-color: #ddd;
+    font-family: Tahoma;
 }
 
 #corpo {
@@ -31,7 +31,7 @@ body#index {
     border-radius: 15px;
 }
 
-h1 {
+h1.titulo_principal {
     margin-bottom: 20px;
 }
 
@@ -61,3 +61,14 @@ h1 {
 .listagem td:nth-child(3) {
     width: 90px;
 }
+
+img.capa_jogo {
+    height: auto;
+    width: 80px;
+}
+
+img.capa_jogo-descricao {
+    height: auto;
+}
+
+a.link_jogo {}
