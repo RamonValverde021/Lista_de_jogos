@@ -8,8 +8,8 @@
     <meta name="description" content="Site com uma lista de jogos usando as tecnologias de PHP com MySQL e Bootstrap">
     <title>Detalhes dos Jogos</title>
     <link rel="icon" href="./images/icone.png">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/detalhes.css?v=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=2.0">
+    <link rel="stylesheet" type="text/css" href="./css/detalhes.css?v=2.0">
     <script language="JavaScript" src="./javascript/script.js" defer></script>
 </head>
 
@@ -19,7 +19,7 @@
     require_once "./includes/functions.php";
     ?>
     <div id="corpo">
-        <?php
+        <?php include_once "./cabecalho.php"; 
         $cod = $_GET['cod'] ?? 0; // Pega o parametro pela URL se ele existir, caso não tenha nada retorna 0
         ?>
 
@@ -48,7 +48,7 @@
         </table>
         <a href="./index.php"><img src="./images/icones/icoback.png"></a>
     </div>
-
+    <?php include_once "./rodape.php"; ?>
 </body>
 
 </html>
