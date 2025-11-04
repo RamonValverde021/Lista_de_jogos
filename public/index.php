@@ -8,7 +8,7 @@
     <meta name="description" content="Site com uma lista de jogos usando as tecnologias de PHP com MySQL e Bootstrap">
     <title>Lista de Jogos</title>
     <link rel="icon" href="./images/icone.png">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=2.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script language="JavaScript" src="./javascript/script.js" defer></script>
 
@@ -28,15 +28,16 @@
         <?php include_once "./cabecalho.php" ?> <!-- Inclui o arquivo do cabeçalho da página. -->
 
         <h1 class="titulo_principal">Escolha seu jogo</h1> <!-- Título principal da página. -->
-        <form method="get" id="busca" action="index.php"> <!-- Formulario de ordenação e busca -->
-            Ordernar:
-            <a class="link_ordernar" href="index.php?ordenar=nome&chave=<?php echo $chave; ?>">Nome</a> |
-            <a class="link_ordernar" href="index.php?ordenar=produtora&chave=<?php echo $chave; ?>">Produtora</a> |
-            <a class="link_ordernar" href="index.php?ordenar=nota_alta&chave=<?php echo $chave; ?>">Nota Alta</a> |
-            <a class="link_ordernar" href="index.php?ordenar=nota_baixa&chave=<?php echo $chave; ?>">Nota Baixa</a> |
-            <a class="link_ordernar" href="index.php">Mostrar Todos</a> |
-            Buscar: <input type="text" name="chave" size="10" maxlength="40" />
-            <input type="submit" value="OK" />
+        <form method="get" action="index.php" class="filtros_ordernar"> <!-- Formulario de ordenação e busca -->
+            <span class="titulo_ordernar">Ordernar: </span>
+            <span class="texto_ordernar"><a class="link_ordernar" href="index.php?ordenar=nome&chave=<?php echo $chave; ?>">Nome</a> |</span>
+            <span class="texto_ordernar"><a class="link_ordernar" href="index.php?ordenar=produtora&chave=<?php echo $chave; ?>">Produtora</a> |</span>
+            <span class="texto_ordernar"><a class="link_ordernar" href="index.php?ordenar=nota_alta&chave=<?php echo $chave; ?>">Nota Alta</a> |</span>
+            <span class="texto_ordernar"><a class="link_ordernar" href="index.php?ordenar=nota_baixa&chave=<?php echo $chave; ?>">Nota Baixa</a> |</span>
+            <span class="texto_ordernar"><a class="link_ordernar" href="index.php">Mostrar Todos</a> |</span>
+            <span class="titulo_ordernar">Buscar: </span>
+            <input type="text" name="chave" size="10" maxlength="40" class="input-text_ordernar"/>
+            <input type="submit" value="OK" class="btn_ordernar"/>
         </form>
 
         <table class="listagem"> <!-- Início da tabela que listará os jogos. -->

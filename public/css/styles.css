@@ -31,9 +31,84 @@ body#index {
     border-radius: 15px;
 }
 
+p.p_login {
+    text-align: right;
+}
+
+a.a_login {
+    color: rgb(0, 153, 255);
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.a_login:hover {
+    color: rgb(0, 97, 161);
+}
+
+a.link_jogo {
+    color: rgb(0, 153, 255);
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.link_jogo:hover {
+    color: rgb(0, 97, 161);
+}
+
 h1.titulo_principal {
     margin-bottom: 20px;
 }
+
+form.filtros_ordernar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+span.titulo_ordernar {
+    font-weight: bold;
+}
+
+span.texto_ordernar {
+    margin: 0;
+}
+
+a.link_ordernar {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+a.link_ordernar:hover {
+    color: rgb(0, 97, 161);
+    background-color: rgba(0, 97, 161, 0.1);
+}
+
+input.input-text_ordernar {
+    padding: 1px 4px;
+    border-radius: 8px;
+}
+
+input.btn_ordernar {
+    padding: 1px 4px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+input.btn_ordernar:hover {
+    color: white;
+    background-color: rgb(0, 97, 161);
+    cursor: pointer;
+    border-color: white;
+}
+
 
 .listagem {
     width: 100%;
@@ -61,6 +136,9 @@ h1.titulo_principal {
 .listagem td:nth-child(3) {
     width: 90px;
 }
+
+
+
 
 div.msg_sucesso {
     padding: 7px 15px;
@@ -91,37 +169,9 @@ img.capa_jogo {
     width: 80px;
 }
 
-p.p_login {
-    text-align: right;
-}
 
-a.a_login {
-    color: rgb(0, 153, 255);
-    font-size: 20px;
-    font-style: normal;
-    text-decoration: none;
-}
 
-a.a_login:hover {
-    color: rgb(0, 97, 161);
-}
 
-a.link_jogo {
-    color: rgb(0, 153, 255);
-    font-size: 20px;
-    font-style: normal;
-    text-decoration: none;
-}
-
-a.link_jogo:hover {
-    color: rgb(0, 97, 161);
-}
-
-form#busca {
-    text-align: right;
-    font-size: 15px;
-    margin: 20px 0;
-}
 
 header {
     text-align: right;
