@@ -62,12 +62,60 @@ h1.titulo_principal {
     width: 90px;
 }
 
+div.msg_sucesso {
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgb(226, 239, 218);
+    color: rgb(74, 116, 67);
+}
+
+div.msg_aviso {
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgb(251, 248, 229);
+    color: rgb(134, 110, 66);
+}
+
+div.msg_erro {
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgb(239, 223, 222);
+    color: rgb(157, 75, 69);
+}
+
 img.capa_jogo {
     height: auto;
     width: 80px;
 }
 
-a.link_jogo {}
+p.p_login {
+    text-align: right;
+}
+
+a.a_login {
+    color: rgb(0, 153, 255);
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.a_login:hover {
+    color: rgb(0, 97, 161);
+}
+
+a.link_jogo {
+    color: rgb(0, 153, 255);
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.link_jogo:hover {
+    color: rgb(0, 97, 161);
+}
 
 form#busca {
     text-align: right;

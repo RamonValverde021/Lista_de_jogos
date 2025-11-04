@@ -8,8 +8,9 @@
     <meta name="description" content="Site com uma lista de jogos usando as tecnologias de PHP com MySQL e Bootstrap">
     <title>Detalhes dos Jogos</title>
     <link rel="icon" href="./images/icone.png">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=2.0">
-    <link rel="stylesheet" type="text/css" href="./css/detalhes.css?v=2.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/detalhes.css?v=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script language="JavaScript" src="./javascript/script.js" defer></script>
 </head>
 
@@ -17,6 +18,7 @@
     <?php
     require_once "./includes/banco.php";
     require_once "./includes/functions.php";
+    require_once "./includes/login.php";
     ?>
     <div id="corpo">
         <?php include_once "./cabecalho.php"; 
@@ -46,7 +48,7 @@
             ?>
 
         </table>
-        <a href="./index.php"><img src="./images/icones/icoback.png"></a>
+        <a href="./index.php"><span class="material-symbols-outlined">arrow_back</span></a>
     </div>
     <?php include_once "./rodape.php"; ?>
 </body>
