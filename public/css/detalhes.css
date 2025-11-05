@@ -1,19 +1,31 @@
 @charset "UTF-8";
 
-.descricao_jogo {
+table.descricao_jogo {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
 }
 
-.descricao_jogo tr {
+table.descricao_jogo tr {
     height: 50px;
 }
 
-.descricao_jogo td {
-    border: 1px solid #ddd;
+table.descricao_jogo td {
+    /* border: 1px solid #ddd; */
     padding: 10px;
     width: 400px;
+}
+
+table.descricao_jogo tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.descricao_jogo td:nth-child(1) {
+    width: 50px;
+}
+
+table.descricao_jogo td:nth-child(3) {
+    width: 90px;
 }
 
 td.capa_jogo {
@@ -26,16 +38,9 @@ td.td_descricao_jogo {
     vertical-align: top;
 }
 
-.descricao_jogo tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.descricao_jogo td:nth-child(1) {
-    width: 50px;
-}
-
-.descricao_jogo td:nth-child(3) {
-    width: 90px;
+td.td_admin_jogo {
+    text-align: right;
+    vertical-align: top;
 }
 
 img.capa_jogo-descricao {

@@ -8,10 +8,9 @@
     <meta name="description" content="Site com uma lista de jogos usando as tecnologias de PHP com MySQL e Bootstrap">
     <title>Lista de Jogos</title>
     <link rel="icon" href="./images/icone.png">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css?v=3.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script language="JavaScript" src="./javascript/script.js" defer></script>
-
 </head>
 
 <body id="index">
@@ -90,7 +89,16 @@
                         echo "<td><a class='link_jogo' href='./detalhes.php?cod=$registro->cod' target='_blank'>$registro->nome</a>"; // Cria um link para a página de detalhes, passando o código do jogo como parâmetro na URL.
                         echo "<br>$registro->genero";                           // Exibe o gênero do jogo.
                         echo " - $registro->produtora</td>";                    // Exibe a produtora do jogo em uma nova linha, dentro da mesma célula.
-                        echo "<td>Adm</td></tr>";                               // Exibe a coluna de administração e fecha a linha da tabela.
+                        // Exibe a coluna de administração e fecha a linha da tabela.
+                        if(isAdmin()) {
+                            echo "<td>";
+                            echo "<span class='material-symbols-outlined icons_admin'>add_circle</span> ";
+                            echo "<span class='material-symbols-outlined icons_admin'>edit</span> ";
+                            echo "<span class='material-symbols-outlined icons_admin'>delete</span>";
+                            echo "</td></tr>";
+                        } elseif(isEditor()) {
+                            echo "<td><span class='material-symbols-outlined icons_admin'>edit</span></td></tr>";
+                        }
                     }
                 }
             }

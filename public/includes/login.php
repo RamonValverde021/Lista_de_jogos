@@ -8,21 +8,46 @@ if(!isset($_SESSION['user'])) {
     $_SESSION['tipo'] = "";
 }
 
-/* 
-    A função password_hash() já é a forma mais segura de armazenar senhas.
-    Ela usa um algoritmo forte (BCrypt por padrão) e adiciona um "sal" (salt) aleatório e seguro automaticamente.
-    Não é necessário (e não é recomendado) criar uma criptografia adicional antes de usá-la. 
-*/
+/* A função password_hash() já é a forma mais segura de armazenar senhas.
+Ela usa um algoritmo forte (BCrypt por padrão) e adiciona um "sal" (salt) aleatório e seguro automaticamente.
+Não é necessário (e não é recomendado) criar uma criptografia adicional antes de usá-la.  */
 function gerarHash($senha) {                          // Define a função 'gerarHash' que recebe uma senha como parâmetro.
     $hash = password_hash($senha, PASSWORD_DEFAULT);  // Cria um hash seguro da senha usando o algoritmo padrão e mais forte disponível.
     return $hash;                                     // Retorna o hash gerado.
 }
 
-function testarHash($senha, $hash) {                    // Define a função 'testarHash' que recebe uma senha em texto plano e um hash.
-    $ok = password_verify($senha, $hash); // Verifica se a senha em texto plano corresponde ao hash fornecido.
-    return $ok;                                         // Retorna 'true' se a senha corresponder ao hash, e 'false' caso contrário.
+function testarHash($senha, $hash) {                  // Define a função 'testarHash' que recebe uma senha em texto plano e um hash.
+    $ok = password_verify($senha, $hash);             // Verifica se a senha em texto plano corresponde ao hash fornecido.
+    return $ok;                                       // Retorna 'true' se a senha corresponder ao hash, e 'false' caso contrário.
 }
 
+function logout() {
+    session_destroy();  // Destroi a sessão do usuário.
+}
+
+function estaLogado() {
+    if (empty($_SESSION['user'])) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function isAdmin() {
+    if ($_SESSION['tipo'] == 'admin') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isEditor() {
+    if ($_SESSION['tipo'] == 'editor') {
+        return true;
+    } else {
+        return false;
+    }
+} 
 /*
 echo gerarHash('teste');                                                                   // Chama a função para gerar um hash da senha 'teste' e o exibe na tela (útil para criar hashes para o banco de dados).
 echo "<br>";

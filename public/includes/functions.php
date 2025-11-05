@@ -9,16 +9,17 @@ function thumb($arquivo) {
 }
 
 function msg_sucesso($msg) {
-    $resposta = "<div class='msg_sucesso'><span class='material-symbols-outlined'>check_circle</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined'>arrow_back</span></a>";
+    $resposta = "<div class='msg_sucesso'><span class='material-symbols-outlined'>check_circle</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined icone_voltar'>arrow_back</span></a>";
     return $resposta;
 }
 
 function msg_aviso($msg) {
-    $resposta = "<div class='msg_aviso'><span class='material-symbols-outlined'>info</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined'>arrow_back</span></a>";
+    $resposta = "<div class='msg_aviso'><span class='material-symbols-outlined'>info</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined icone_voltar'>arrow_back</span></a>";
     return $resposta;
 }
 
 function msg_erro($msg) {
-    $resposta = "<div class='msg_erro'><span class='material-symbols-outlined'>error</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined'>arrow_back</span></a>";
+    $resposta = "<div class='msg_erro'><span class='material-symbols-outlined'>error</span>" . $msg . "</div> <a href='./index.php'><span class='material-symbols-outlined icone_voltar'>arrow_back</span></a>";
     return $resposta;
 }
+?>

@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-@font-face {
-    font-family: 'Roboto';
-    src: url("../font/Roboto-VariableFont_wdth\,wght.ttf");
-}
-
-* {
-    /* Resetar modulos de espaçamentos*/
-    margin: 0px;
-    padding: 0px;
-    font-family: Roboto;
-}
-
 #corpo_login {
     width: 275px;
     margin: 50px auto;
@@ -41,6 +29,13 @@ input.input-text_login {
     padding: 1px 4px;
     border-radius: 8px;
     font-size: 20px;
+}
+
+select.select_login {
+    padding: 1px 4px;
+    border-radius: 8px;
+    font-size: 20px;
+    border-width: 2px;
 }
 
 input.btn_login {

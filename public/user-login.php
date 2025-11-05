@@ -15,42 +15,37 @@
 </head>
 
 <body id="user-login">
-    <div id="corpo_login">
+    <div id="corpo">
         <?php
-        require_once "includes/banco.php";
-        require_once "includes/functions.php";
-        require_once "includes/login.php";
+        require_once "includes/banco.php";                                   // Importa o arquivo de conexão com o banco de dados, garantindo que seja incluído apenas uma vez.
+        require_once "includes/functions.php";                               // Importa o arquivo com funções auxiliares (como mensagens de sucesso/erro), garantindo que seja incluído apenas uma vez.
+        require_once "includes/login.php";                                   // Importa o arquivo com funções de login (gerar/testar hash) e gerenciamento de sessão.
 
-        $user = $_POST['usuario'] ?? null;
-        $pass = $_POST['senha'] ?? null;
+        $user = $_POST['usuario'] ?? null;                                   // Pega o valor do campo 'usuario' enviado pelo formulário via POST; se não existir, define como nulo.
+        $pass = $_POST['senha'] ?? null;                                     // Pega o valor do campo 'senha' enviado pelo formulário via POST; se não existir, define como nulo.
 
-        if (is_null($user) || is_null($pass)) {
-            header("Location: user-login-form.php"); // Redireciona para o formulário
-            exit; // Para a execução do script
-        } else {
-            //echo "Dados foram passados... ";
-            $query = "SELECT usuario, nome, senha, tipo 
-              FROM usuarios 
-              WHERE usuario='$user' LIMIT 1";
-            $busca = $banco->query($query);
-            if (!$busca) {
-                echo "<tr><td>Falha na busca! " . $banco->error . "</td></tr>";
-            } else {
-                if ($busca->num_rows == 0) {
-                    echo "<tr><td>Nenhum registro encontrado!</td></tr>";
-                } else {
-                    $registro = $busca->fetch_object();
-                    //echo print_r($registro);
-
-                    if (testarHash($pass, $registro->senha)) {
-                        echo msg_sucesso("Login efetuado com sucesso!");
-                        $_SESSION['user'] = $registro->usuario;
-                        $_SESSION['nome'] = $registro->nome;
-                        $_SESSION['tipo'] = $registro->tipo;
-                        header("Location: index.php");
-                    } else {
-                        echo msg_erro("Usuário ou senha incorretos!");
+        if (is_null($user) || is_null($pass)) {                              // Verifica se o usuário ou a senha são nulos (acesso direto à página sem formulário).
+            header("Location: user-login-form.php");                         // Redireciona o usuário de volta para a página do formulário de login.
+            exit;                                                            // Interrompe a execução do script para garantir que o redirecionamento ocorra.
+        } else {                                                             // Se o usuário e a senha foram enviados...
+            $query = "SELECT usuario, nome, senha, tipo FROM usuarios WHERE usuario='$user' LIMIT 1"; // Monta a consulta SQL para buscar o usuário no banco de dados.
+            $busca = $banco->query($query);                                  // Executa a consulta no banco de dados.
+            if (!$busca) {                                                   // Verifica se a consulta ao banco de dados falhou.
+                echo msg_erro("Falha ao acessar o banco: " . $banco->error); // Exibe uma mensagem de erro se a consulta falhar.
+            } else {                                                         // Se a consulta foi bem-sucedida...
+                if ($busca->num_rows > 0) {                                  // Verifica se a consulta retornou algum registro (usuário encontrado).
+                    $registro = $busca->fetch_object();                      // Converte o resultado da busca em um objeto para facilitar o acesso aos dados.
+                    if (testarHash($pass, $registro->senha)) {               // Verifica se a senha fornecida corresponde ao hash armazenado no banco.
+                        //echo msg_sucesso("Login efetuado com sucesso!");   // Exibe uma mensagem de sucesso.
+                        $_SESSION['user'] = $registro->usuario;              // Armazena o nome de usuário na sessão.
+                        $_SESSION['nome'] = $registro->nome;                 // Armazena o nome completo do usuário na sessão.
+                        $_SESSION['tipo'] = $registro->tipo;                 // Armazena o tipo de usuário (ex: admin, editor) na sessão.
+                        header("Location: index.php");                       // Redireciona o usuário para a página principal.
+                    } else {                                                 // Se a senha não corresponder...
+                        echo msg_erro("Usuário ou senha inválidos!");        // Exibe uma mensagem de erro genérica por segurança.
                     }
+                } else {                                                     // Se a consulta não retornou nenhum registro...
+                    echo msg_erro("Nenhum usuário encontrado!");             // Exibe uma mensagem informando que nenhum usuário não foi encontrado.
                 }
             }
         }
