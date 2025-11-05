@@ -13,23 +13,13 @@ if(!isset($_SESSION['user'])) {
     Ela usa um algoritmo forte (BCrypt por padrão) e adiciona um "sal" (salt) aleatório e seguro automaticamente.
     Não é necessário (e não é recomendado) criar uma criptografia adicional antes de usá-la. 
 */
-function criptografar($senha) {
-    $cripto = '';
-    for ($i = 0; $i < strlen($senha); $i++) {
-        $letra =  ord($senha[$i]) + 1;
-        $cripto .= chr($letra);
-    }
-    return $cripto;
-}
-
 function gerarHash($senha) {                          // Define a função 'gerarHash' que recebe uma senha como parâmetro.
-    $cripto = criptografar($senha);                   // Chama a função 'criptografar' para criptografar a senha.
-    $hash = password_hash($cripto, PASSWORD_DEFAULT); // Cria um hash seguro da senha usando o algoritmo padrão e mais forte disponível.
+    $hash = password_hash($senha, PASSWORD_DEFAULT);  // Cria um hash seguro da senha usando o algoritmo padrão e mais forte disponível.
     return $hash;                                     // Retorna o hash gerado.
 }
 
 function testarHash($senha, $hash) {                    // Define a função 'testarHash' que recebe uma senha em texto plano e um hash.
-    $ok = password_verify(criptografar($senha), $hash); // Verifica se a senha em texto plano corresponde ao hash fornecido.
+    $ok = password_verify($senha, $hash); // Verifica se a senha em texto plano corresponde ao hash fornecido.
     return $ok;                                         // Retorna 'true' se a senha corresponder ao hash, e 'false' caso contrário.
 }
 
