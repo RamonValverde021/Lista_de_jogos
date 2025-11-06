@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Site com uma lista de jogos usando as tecnologias de PHP com MySQL e Bootstrap">
-    <title>Cadastro</title>
+    <title>Login</title>
     <link rel="icon" href="images/icone.png">
     <link rel="stylesheet" type="text/css" href="css/styles.css?v=1.0">
     <link rel="stylesheet" type="text/css" href="css/login.css?v=1.0">

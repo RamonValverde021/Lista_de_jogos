@@ -194,6 +194,11 @@ footer {
     margin: 20px;
 }
 
+div.btn_voltar {
+    width: 100%;
+    text-align: left;
+}
+
 span.icone_voltar {
     color: black;
     cursor: pointer;
